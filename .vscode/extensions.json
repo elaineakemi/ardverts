@@ -1,5 +1,3 @@
 {
-    "recommendations": [
-        "exceptionptr.vscode-prettier-eslint"
-    ]
+  "recommendations": ["exceptionptr.vscode-prettier-eslint"]
 }

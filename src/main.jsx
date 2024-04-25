@@ -1,11 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { ErrorPage } from './pages/Error.jsx'
-import App from './App.jsx'
+import { ErrorPage } from './pages/Error'
 import './index.css'
-
-import { Product } from './pages/products/Product.jsx'
+import { Product } from './pages/products/Product'
 
 const router = createBrowserRouter([
   {
