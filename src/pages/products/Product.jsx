@@ -1,6 +1,11 @@
-import { GlassesTryOn } from '../../components/virtual-try-on/Glasses'
-import GlassesImage from '../../assets/images/glasses/sunglasses.png'
+import { BottomNav } from '../../components/Bottom-Navigation/BottomNav'
+import { ProductDetail } from '../../components/Product-Detail/ProductDetail'
 
-const Product = () => <GlassesTryOn image={GlassesImage} />
+const Product = () => (
+  <>
+    <ProductDetail />
+    <BottomNav />
+  </>
+)
 
 export { Product }

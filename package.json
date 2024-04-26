@@ -11,6 +11,11 @@
     "pwa-assets": "pwa-assets-generator --preset minimal public/logo.svg"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.15",
+    "@mui/material": "^5.15.15",
+    "@mui/system": "^5.15.15",
     "@react-three/drei": "^9.105.4",
     "@react-three/fiber": "^8.16.2",
     "@react-three/xr": "^5.7.1",
@@ -24,6 +29,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.0",
+    "react-swipeable-views-react-18-fix": "^0.14.1",
     "react-webcam": "^7.2.0",
     "sort-by": "^1.2.0"
   },

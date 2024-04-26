@@ -5,21 +5,32 @@ import * as tf from '@tensorflow/tfjs-core'
 import '@tensorflow/tfjs-converter'
 import '@tensorflow/tfjs-backend-webgl'
 import * as faceLandmarksDetection from '@tensorflow-models/face-landmarks-detection'
-import {
-  CAMERA_HEIGHT,
-  CAMERA_WIDTH,
-  CANVAS_HEIGHT,
-  CANVAS_WIDTH,
-} from '../../utils/consts'
+import { useWindowSize } from '../../hooks/useWindowSize'
+import { CANVAS_HEIGHT, CANVAS_WIDTH } from '../../utils/consts'
 
-function GlassesTryOn(props) {
-  const { image: glassesImage } = props
-
+const GlassesTryOn = (props) => {
+  const { image } = props
+  const glassesImage = new URL(image, import.meta.url).href
   const webcamRef = useRef(null)
   const canvasRef = useRef(null)
   const [model, setModel] = useState(null)
   const [glassesMesh, setGlassesMesh] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+
+  const size = useWindowSize()
+  const isLandscape = size.height <= size.width
+  const ratio = isLandscape
+    ? size.width / size.height
+    : size.height / size.width
+
+  const isMobile = () => {
+    const minWidth = 768
+    return window.innerWidth < minWidth || screen.width < minWidth
+  }
+
+  const canvasSize = isMobile()
+    ? { width: size.width, height: size.height }
+    : { width: CANVAS_WIDTH, height: CANVAS_HEIGHT }
 
   useEffect(() => {
     const loadResources = async () => {
@@ -139,48 +150,43 @@ function GlassesTryOn(props) {
   }, [model, glassesMesh])
 
   return (
-    <>
-      <div style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.2)' }}>
-        <h1 style={{ textAlign: 'center' }}>Virtual Try-On</h1>
-      </div>
-      <div style={{ position: 'relative', margin: '0 auto' }}>
-        {isLoading && (
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              backgroundColor: 'rgba(255, 255, 255, 0.5)',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 2,
-            }}
-          >
-            <h3>Loading...</h3>
-          </div>
-        )}
-        <Webcam
-          ref={webcamRef}
-          autoPlay
-          playsInline
-          style={{ width: CAMERA_WIDTH, height: CAMERA_HEIGHT }}
-          mirrored
-        />
-        <canvas
-          ref={canvasRef}
+    <div style={{ position: 'relative', margin: '0 auto' }}>
+      {isLoading && (
+        <div
           style={{
-            maxWidth: CANVAS_WIDTH,
-            height: CANVAS_HEIGHT,
             position: 'absolute',
             top: 0,
             left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 2,
           }}
-        />
-      </div>
-    </>
+        >
+          <h3>Loading...</h3>
+        </div>
+      )}
+      <Webcam
+        ref={webcamRef}
+        autoPlay
+        playsInline
+        mirrored
+        videoConstraints={{ facingMode: 'user', aspectRatio: ratio }}
+        style={{ ...canvasSize }}
+      />
+      <canvas
+        ref={canvasRef}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          ...canvasSize,
+        }}
+      />
+    </div>
   )
 }
 
