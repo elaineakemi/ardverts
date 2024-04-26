@@ -1,23 +1,12 @@
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Route, Routes } from 'react-router-dom'
+import { Home } from './pages/Home/Home'
+import { Products } from './pages/Products/Products'
 
 const App = () => (
-  <>
-    <div>
-      <a href="https://react.dev" target="_blank" rel="noreferrer">
-        <img src={reactLogo} className="logo react" alt="React logo" />
-      </a>
-    </div>
-    <h1>Vite + React</h1>
-    <div className="card">
-      <p>
-        Edit <code>src/App.jsx</code> and save to test HMR
-      </p>
-    </div>
-    <p className="read-the-docs">
-      Click on the Vite and React logos to learn more
-    </p>
-  </>
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="products/*" element={<Products />} />
+  </Routes>
 )
 
 export default App
