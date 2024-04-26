@@ -10,7 +10,6 @@ export const MockProducts = [
     images: [
       { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
     ],
-    arUrl: '',
   },
   {
     id: 2,
@@ -23,7 +22,6 @@ export const MockProducts = [
     images: [
       { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
     ],
-    arUrl: '',
   },
   {
     id: 3,
@@ -36,6 +34,77 @@ export const MockProducts = [
     images: [
       { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
     ],
-    arUrl: '',
+  },
+  {
+    id: 4,
+    name: '4',
+    description: 'Superdry sunglasses in very good condition.',
+    additionalInfo: 'Used only few times, comes with case.',
+    price: '€15.00',
+    category: 'accessory',
+    size: 'N/A',
+    images: [
+      { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
+    ],
+  },
+  {
+    id: 5,
+    name: '5',
+    description: 'Superdry sunglasses in very good condition.',
+    additionalInfo: 'Used only few times, comes with case.',
+    price: '€15.00',
+    category: 'accessory',
+    size: 'N/A',
+    images: [
+      { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
+    ],
+  },
+  {
+    id: 6,
+    name: '6',
+    description: 'Superdry sunglasses in very good condition.',
+    additionalInfo: 'Used only few times, comes with case.',
+    price: '€15.00',
+    category: 'accessory',
+    size: 'N/A',
+    images: [
+      { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
+    ],
+  },
+  {
+    id: 7,
+    name: '7',
+    description: 'Superdry sunglasses in very good condition.',
+    additionalInfo: 'Used only few times, comes with case.',
+    price: '€15.00',
+    category: 'accessory',
+    size: 'N/A',
+    images: [
+      { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
+    ],
+  },
+  {
+    id: 8,
+    name: '8',
+    description: 'Superdry sunglasses in very good condition.',
+    additionalInfo: 'Used only few times, comes with case.',
+    price: '€15.00',
+    category: 'accessory',
+    size: 'N/A',
+    images: [
+      { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
+    ],
+  },
+  {
+    id: 9,
+    name: '9',
+    description: 'Superdry sunglasses in very good condition.',
+    additionalInfo: 'Used only few times, comes with case.',
+    price: '€15.00',
+    category: 'accessory',
+    size: 'N/A',
+    images: [
+      { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
+    ],
   },
 ]

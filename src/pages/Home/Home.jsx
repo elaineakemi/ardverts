@@ -1,7 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
-import { Container, Button, Typography } from '@mui/material'
+import { Container, Button, Typography, Paper } from '@mui/material'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -15,53 +15,71 @@ const Home = () => {
   }
 
   return (
-    <Container
+    <Paper
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        background: 'linear-gradient(135deg, #FF8F1C, #FFF)', // CSS gradient background
-        color: '#fff', // Light text color
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
       }}
     >
-      <Typography
-        variant="h4"
-        component="h1"
-        gutterBottom
-        sx={{ textAlign: 'center', marginBottom: '40px' }}
-      >
-        Welcome to Our App
-      </Typography>
-      <Button
-        variant="contained"
-        onClick={handleSellerClick}
+      <Container
         sx={{
-          backgroundColor: '#4caf50', // Green color
-          color: '#fff',
-          padding: '15px 30px',
-          borderRadius: '50px',
-          marginBottom: '20px',
-          textTransform: 'none', // Prevent button text from being uppercase
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+          background: 'linear-gradient(135deg, #FF8F1C, #FFF)',
+          color: '#FFF',
         }}
+        maxWidth={false}
       >
-        I want Sell
-      </Button>
-      <Button
-        variant="contained"
-        onClick={handleBuyerClick}
-        sx={{
-          backgroundColor: '#2196f3', // Blue color
-          color: '#fff',
-          padding: '15px 30px',
-          borderRadius: '50px',
-          textTransform: 'none', // Prevent button text from being uppercase
-        }}
-      >
-        I want Buy
-      </Button>
-    </Container>
+        <Typography
+          variant="h2"
+          component="h1"
+          gutterBottom
+          sx={{ textAlign: 'center', marginBottom: '100px' }}
+        >
+          <strong>AR</strong>dverts
+        </Typography>
+        <Button
+          variant="contained"
+          onClick={handleSellerClick}
+          sx={{
+            backgroundColor: '#fff',
+            color: '#FF8F1C',
+            padding: '15px 30px',
+            borderRadius: '50px',
+            marginBottom: '20px',
+            textTransform: 'none',
+            '&:hover': {
+              // Remove hover effect
+              backgroundColor: '#fff',
+            },
+          }}
+        >
+          <strong>I want Sell</strong>
+        </Button>
+        <Button
+          variant="contained"
+          onClick={handleBuyerClick}
+          sx={{
+            background: '#FF8F1C',
+            color: '#fff',
+            padding: '15px 30px',
+            borderRadius: '50px',
+            textTransform: 'none',
+            '&:hover': {
+              // Remove hover effect
+              backgroundColor: '#FF8F1C',
+            },
+          }}
+        >
+          <strong>I want Buy</strong>
+        </Button>
+      </Container>
+    </Paper>
   )
 }
 

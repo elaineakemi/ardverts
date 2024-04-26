@@ -14,7 +14,16 @@ const Search = () => (
     }}
     variant="outlined"
     fullWidth
-    sx={{ p: '10px 32px' }}
+    sx={{
+      p: '10px 32px',
+      '& .MuiOutlinedInput-root': {
+        color: '#FFF',
+        '& .MuiOutlinedInput-notchedOutline': {
+          borderColor: '#FFF',
+          borderWidth: '2px',
+        },
+      },
+    }}
   />
 )
 

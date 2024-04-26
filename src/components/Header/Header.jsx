@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { useNavigate } from 'react-router-dom'
 import { ShoppingCart as ShoppingCartIcon } from '@mui/icons-material'
 import {
@@ -20,6 +21,7 @@ const Header = () => {
         top: 0,
         left: 0,
         right: 0,
+        zIndex: 10,
       }}
       elevation={3}
     >

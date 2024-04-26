@@ -79,6 +79,7 @@ const CartProvider = ({ children }) => {
     setCartItems(clearCartItem(cartItems, cartItemToRemove))
   }
   // maps to context
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
   const value = {
     isCartOpen,
     setIsCartOpen,

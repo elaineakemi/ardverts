@@ -1,5 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { useParams, useNavigate } from 'react-router-dom'
-
 import {
   Typography,
   Container,

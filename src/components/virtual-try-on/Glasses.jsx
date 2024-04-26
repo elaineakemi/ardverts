@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { useRef, useEffect, useState } from 'react'
 import Webcam from 'react-webcam'
 import * as threejs from 'three'
@@ -25,6 +26,7 @@ const GlassesTryOn = (props) => {
 
   const isMobile = () => {
     const minWidth = 768
+    // eslint-disable-next-line no-restricted-globals
     return window.innerWidth < minWidth || screen.width < minWidth
   }
 
