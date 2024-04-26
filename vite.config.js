@@ -41,5 +41,14 @@ export default defineConfig({
       },
     }),
   ],
+  optimizeDeps: {
+    // include: ['linked-dep'],
+  },
+  build: {
+    commonjsOptions: {
+      transformMixedEsModules: true,
+      // include: [/linked-dep/, /node_modules/],
+    },
+  },
   server: { host: '0.0.0.0', https: true },
 })
