@@ -1,38 +1,47 @@
 export const MockProducts = [
   {
     id: 1,
-    name: 'Sunglasses',
+    name: 'Superdry Sunglasses',
     description: 'Superdry sunglasses in very good condition.',
     additionalInfo: 'Used only few times, comes with case.',
     price: '€15.00',
     category: 'accessory',
     size: 'N/A',
     images: [
-      { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
+      {
+        imgPath: '../../assets/images/glasses/sunglasses.png',
+        label: 'Superdry Sunglasses',
+      },
     ],
   },
   {
     id: 2,
-    name: '2',
-    description: 'Superdry sunglasses in very good condition.',
-    additionalInfo: 'Used only few times, comes with case.',
-    price: '€15.00',
+    name: 'Ray-ban Sunglasses',
+    description: 'Ray-ban sunglasses aviator.',
+    additionalInfo: 'Very good condition, moirroed sunglasses.',
+    price: '€20.00',
     category: 'accessory',
     size: 'N/A',
     images: [
-      { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
+      {
+        imgPath: '../../assets/images/glasses/sunglasses2.png',
+        label: 'Ray-ban Sunglasses',
+      },
     ],
   },
   {
     id: 3,
-    name: '3',
-    description: 'Superdry sunglasses in very good condition.',
-    additionalInfo: 'Used only few times, comes with case.',
-    price: '€15.00',
+    name: 'Generic Sunglasses',
+    description: 'Generic sunglasses, never used.',
+    additionalInfo: 'Unwanted gift, no brand.',
+    price: '€5.00',
     category: 'accessory',
     size: 'N/A',
     images: [
-      { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
+      {
+        imgPath: '../../assets/images/glasses/sunglasses3.png',
+        label: 'Generic Sunglasses',
+      },
     ],
   },
   {

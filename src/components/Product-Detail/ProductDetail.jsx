@@ -10,6 +10,8 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Grid,
+  Paper,
 } from '@mui/material'
 import {
   ExpandMore as ExpandMoreIcon,
@@ -32,14 +34,25 @@ const ProductDetail = () => {
     navigate(`/products/${product.id}/try/glasses`)
   }
   return (
-    <>
-      <ImageSlider images={product.images} />
-      <Container maxWidth="sm" sx={{ pb: 2 }}>
+    <Paper
+      sx={{ position: 'absolute', top: 0, left: 0, right: 0 }}
+      elevation={0}
+    >
+      <Container sx={{ pb: 2 }}>
+        <ImageSlider images={product.images} />
+      </Container>
+      <Container sx={{ pb: 2 }}>
         <Stack direction="row" justifyContent="center" alignItems="center">
           <IconButton
             aria-label="AR"
             size="large"
             onClick={() => handleAR(product.images[0].imgPath)}
+            sx={{
+              '&:hover': {
+                // Remove hover effect
+                backgroundColor: '#FFF',
+              },
+            }}
           >
             <ViewInArIcon fontSize="large" />
             <Typography variant="body2" color="textSecondary">
@@ -67,6 +80,9 @@ const ProductDetail = () => {
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1-content"
               id="panel1-header"
+              sx={{
+                backgroundColor: '#EBEBEB',
+              }}
             >
               Description
             </AccordionSummary>
@@ -77,17 +93,32 @@ const ProductDetail = () => {
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1-content"
               id="panel2-header"
+              sx={{
+                backgroundColor: '#EBEBEB',
+              }}
             >
               Additional Info
             </AccordionSummary>
             <AccordionDetails>{product.additionalInfo}</AccordionDetails>
           </Accordion>
         </Stack>
-        <Button fullWidth variant="contained" color="primary">
+        <Button
+          fullWidth
+          variant="contained"
+          sx={{
+            background: '#FF8F1C',
+            color: '#fff',
+            textTransform: 'none',
+            '&:hover': {
+              // Remove hover effect
+              backgroundColor: '#FF8F1C',
+            },
+          }}
+        >
           Add to Cart
         </Button>
       </Container>
-    </>
+    </Paper>
   )
 }
 

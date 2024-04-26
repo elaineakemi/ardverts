@@ -30,7 +30,7 @@ const ImageSlider = ({ images }) => {
   }
 
   return (
-    <Box sx={{ maxWidth: 'sm', flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }}>
       <Stack direction="row" justifyContent="space-between">
         <Button size="small" onClick={() => navigate(-1)}>
           <KeyboardArrowLeftIcon />
@@ -47,24 +47,26 @@ const ImageSlider = ({ images }) => {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        {images.map((step, index) => (
-          <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <Box
-                component="img"
-                sx={{
-                  height: 255,
-                  display: 'block',
-                  maxWidth: 'sm',
-                  overflow: 'hidden',
-                  width: '100%',
-                }}
-                src={new URL(step.imgPath, import.meta.url).href}
-                alt={step.label}
-              />
-            ) : null}
-          </div>
-        ))}
+        <Box display="flex" justifyContent="center">
+          {images.map((step, index) => (
+            <div key={step.label}>
+              {Math.abs(activeStep - index) <= 2 ? (
+                <Box
+                  component="img"
+                  sx={{
+                    height: 255,
+                    display: 'block',
+                    maxWidth: 'sm',
+                    overflow: 'hidden',
+                    width: '100%',
+                  }}
+                  src={new URL(step.imgPath, import.meta.url).href}
+                  alt={step.label}
+                />
+              ) : null}
+            </div>
+          ))}
+        </Box>
       </SwipeableViews>
       <MobileStepper
         steps={maxSteps}
