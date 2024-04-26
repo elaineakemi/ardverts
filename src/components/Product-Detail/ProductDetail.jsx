@@ -17,7 +17,6 @@ import {
 } from '@mui/icons-material'
 import { ImageSlider } from '../Image-Slider/ImageSlider'
 import { MockProducts } from '../../mock/Products'
-import { GlassesTryOn } from '../Virtual-Try-On/Glasses'
 
 const ProductDetail = () => {
   const { productId } = useParams()

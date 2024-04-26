@@ -1,4 +1,5 @@
-import * as React from 'react'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useTheme } from '@mui/material/styles'
 import SwipeableViews from 'react-swipeable-views-react-18-fix'
 import { Box, MobileStepper, Button, IconButton, Stack } from '@mui/material'
@@ -9,8 +10,10 @@ import {
 } from '@mui/icons-material'
 
 const ImageSlider = ({ images }) => {
+  const navigate = useNavigate()
+
   const theme = useTheme()
-  const [activeStep, setActiveStep] = React.useState(0)
+  const [activeStep, setActiveStep] = useState(0)
   const maxSteps = images.length
 
   const handleNext = () => {
@@ -28,7 +31,7 @@ const ImageSlider = ({ images }) => {
   return (
     <Box sx={{ maxWidth: 'sm', flexGrow: 1 }}>
       <Stack direction="row" justifyContent="space-between">
-        <Button size="small" onClick={handleBack}>
+        <Button size="small" onClick={() => navigate(-1)}>
           <KeyboardArrowLeftIcon />
           BACK
         </Button>
