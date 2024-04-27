@@ -7,6 +7,7 @@ export const MockProducts = [
     price: '€15.00',
     category: 'accessory',
     size: 'N/A',
+    type: 'glasses',
     images: [
       {
         imgPath: '../../assets/images/glasses/sunglasses.png',
@@ -18,10 +19,11 @@ export const MockProducts = [
     id: 2,
     name: 'Ray-ban Sunglasses',
     description: 'Ray-ban sunglasses aviator.',
-    additionalInfo: 'Very good condition, moirroed sunglasses.',
-    price: '€20.00',
+    additionalInfo: 'Very good condition, mirrored sunglasses.',
+    price: '€50.00',
     category: 'accessory',
     size: 'N/A',
+    type: 'glasses',
     images: [
       {
         imgPath: '../../assets/images/glasses/sunglasses2.png',
@@ -37,6 +39,7 @@ export const MockProducts = [
     price: '€5.00',
     category: 'accessory',
     size: 'N/A',
+    type: 'glasses',
     images: [
       {
         imgPath: '../../assets/images/glasses/sunglasses3.png',
@@ -46,26 +49,43 @@ export const MockProducts = [
   },
   {
     id: 4,
-    name: '4',
-    description: 'Superdry sunglasses in very good condition.',
-    additionalInfo: 'Used only few times, comes with case.',
-    price: '€15.00',
+    name: 'Reading Glasses',
+    description: 'Reading glasses brand new.',
+    additionalInfo: 'Never used, comes with case.',
+    price: '€10.00',
     category: 'accessory',
     size: 'N/A',
+    type: 'glasses',
     images: [
-      { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
+      { imgPath: '../../assets/images/glasses/glasses.png', label: 'Glasses' },
     ],
   },
   {
     id: 5,
-    name: '5',
-    description: 'Superdry sunglasses in very good condition.',
-    additionalInfo: 'Used only few times, comes with case.',
-    price: '€15.00',
+    name: 'Headphones',
+    description: 'Headphones in good condition.',
+    additionalInfo: 'Used only few times, comes with case and cables.',
+    price: '€20.00',
     category: 'accessory',
     size: 'N/A',
+    type: 'headphones',
     images: [
-      { imgPath: '../../assets/images/glasses/sunglasses.png', label: '' },
+      {
+        imgPath: '../../assets/images/headphones/headphones1.png',
+        label: 'Headphones1',
+      },
+      {
+        imgPath: '../../assets/images/headphones/headphones2.png',
+        label: 'Headphones2',
+      },
+      {
+        imgPath: '../../assets/images/headphones/headphones3.png',
+        label: 'Headphones3',
+      },
+      {
+        imgPath: '../../assets/images/headphones/headphones4.png',
+        label: 'Headphones4',
+      },
     ],
   },
   {

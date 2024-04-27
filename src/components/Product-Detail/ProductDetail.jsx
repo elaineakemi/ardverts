@@ -31,7 +31,7 @@ const ProductDetail = () => {
   }
 
   const handleAR = () => {
-    navigate(`/products/${product.id}/try/glasses`)
+    navigate(`/products/${product.id}/try/${product.type}`)
   }
   return (
     <Paper
