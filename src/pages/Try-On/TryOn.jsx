@@ -8,10 +8,6 @@ const VirtualTryOn = () => {
   const { productId, type } = useParams()
   const product = MockProducts.find((p) => p.id === Number(productId))
 
-  if (!product) {
-    return <div>Product not found</div>
-  }
-
   return (
     <>
       {type === ModelTypes.GLASSES && (

@@ -69,7 +69,7 @@ const XrHitModel = ({ modelType }) => {
         </Interactive>
       )}
 
-      {!isPresenting && <Model modelType={modelType} />}
+      {/*! isPresenting && <Model modelType={modelType} /> */}
     </>
   )
 }

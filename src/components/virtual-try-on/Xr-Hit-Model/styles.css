@@ -1,0 +1,19 @@
+model-viewer[ar-status='not-presenting'] > #ar-button {
+  display: none;
+}
+
+.arButtonEnter {
+  background: none !important;
+  color: inherit !important;
+  font: inherit !important;
+  bottom: auto !important;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.arButtonExit {
+  background: none !important;
+  color: inherit !important;
+  border: 0 !important;
+}

@@ -3,9 +3,15 @@ import { useRef, useEffect, useState } from 'react'
 import Webcam from 'react-webcam'
 import * as threejs from 'three'
 import * as tf from '@tensorflow/tfjs-core'
-import '@tensorflow/tfjs-converter'
-import '@tensorflow/tfjs-backend-webgl'
+import * as tfconverter from '@tensorflow/tfjs-converter'
+import * as tswebgl from '@tensorflow/tfjs-backend-webgl'
 import * as faceLandmarksDetection from '@tensorflow-models/face-landmarks-detection'
+import { Button, IconButton, Stack } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
+import {
+  Favorite as FavoriteIcon,
+  KeyboardArrowLeft as KeyboardArrowLeftIcon,
+} from '@mui/icons-material'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from '../../utils/consts'
 
@@ -17,6 +23,7 @@ const GlassesTryOn = (props) => {
   const [model, setModel] = useState(null)
   const [glassesMesh, setGlassesMesh] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const navigate = useNavigate()
 
   const size = useWindowSize()
   const isLandscape = size.height <= size.width
@@ -152,43 +159,55 @@ const GlassesTryOn = (props) => {
   }, [model, glassesMesh])
 
   return (
-    <div style={{ position: 'relative', margin: '0 auto' }}>
-      {isLoading && (
-        <div
+    <>
+      <Stack direction="row" justifyContent="space-between">
+        <Button size="small" onClick={() => navigate(-1)}>
+          <KeyboardArrowLeftIcon />
+          BACK
+        </Button>
+        <IconButton aria-label="Favorite" edge="start" color="tertiary">
+          <FavoriteIcon />
+        </IconButton>
+      </Stack>
+
+      <div style={{ position: 'relative', margin: '0 auto' }}>
+        {isLoading && (
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundColor: 'rgba(255, 255, 255, 0.5)',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              zIndex: 2,
+            }}
+          >
+            <h3>Loading...</h3>
+          </div>
+        )}
+        <Webcam
+          ref={webcamRef}
+          autoPlay
+          playsInline
+          mirrored
+          videoConstraints={{ facingMode: 'user', aspectRatio: ratio }}
+          style={{ ...canvasSize }}
+        />
+        <canvas
+          ref={canvasRef}
           style={{
             position: 'absolute',
             top: 0,
             left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(255, 255, 255, 0.5)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 2,
+            ...canvasSize,
           }}
-        >
-          <h3>Loading...</h3>
-        </div>
-      )}
-      <Webcam
-        ref={webcamRef}
-        autoPlay
-        playsInline
-        mirrored
-        videoConstraints={{ facingMode: 'user', aspectRatio: ratio }}
-        style={{ ...canvasSize }}
-      />
-      <canvas
-        ref={canvasRef}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          ...canvasSize,
-        }}
-      />
-    </div>
+        />
+      </div>
+    </>
   )
 }
 

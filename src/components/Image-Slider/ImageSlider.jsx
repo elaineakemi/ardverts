@@ -47,8 +47,8 @@ const ImageSlider = ({ images }) => {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        <Box display="flex" justifyContent="center">
-          {images.map((step, index) => (
+        {images.map((step, index) => (
+          <Box display="flex" justifyContent="center">
             <div key={step.label}>
               {Math.abs(activeStep - index) <= 2 ? (
                 <Box
@@ -65,8 +65,8 @@ const ImageSlider = ({ images }) => {
                 />
               ) : null}
             </div>
-          ))}
-        </Box>
+          </Box>
+        ))}
       </SwipeableViews>
       <MobileStepper
         steps={maxSteps}

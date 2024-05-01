@@ -10,8 +10,8 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Grid,
   Paper,
+  Box,
 } from '@mui/material'
 import {
   ExpandMore as ExpandMoreIcon,
@@ -19,6 +19,7 @@ import {
 } from '@mui/icons-material'
 import { ImageSlider } from '../Image-Slider/ImageSlider'
 import { MockProducts } from '../../mock/Products'
+import { XrHitModelContainer } from '../Virtual-Try-On/Xr-Hit-Model/XrHitModelContainer'
 
 const ProductDetail = () => {
   const { productId } = useParams()
@@ -27,7 +28,7 @@ const ProductDetail = () => {
   const product = MockProducts.find((p) => p.id === Number(productId))
 
   if (!product) {
-    return <div>Product not found</div>
+    return <Container>Product not found</Container>
   }
 
   const handleAR = () => {
@@ -43,22 +44,33 @@ const ProductDetail = () => {
       </Container>
       <Container sx={{ pb: 2 }}>
         <Stack direction="row" justifyContent="center" alignItems="center">
-          <IconButton
-            aria-label="AR"
-            size="large"
-            onClick={() => handleAR(product.images[0].imgPath)}
-            sx={{
-              '&:hover': {
-                // Remove hover effect
-                backgroundColor: '#FFF',
-              },
-            }}
-          >
-            <ViewInArIcon fontSize="large" />
-            <Typography variant="body2" color="textSecondary">
-              View in AR
-            </Typography>
-          </IconButton>
+          {product.type !== 'glasses' && (
+            <Box
+              display="flex"
+              sx={{ marginBottom: '-80px' }}
+              justifyContent="center"
+            >
+              <XrHitModelContainer modelType={product.type} />
+            </Box>
+          )}
+          {product.type === 'glasses' && (
+            <IconButton
+              aria-label="AR"
+              size="large"
+              onClick={() => handleAR(product.images[0].imgPath)}
+              sx={{
+                '&:hover': {
+                  // Remove hover effect
+                  backgroundColor: '#FFF',
+                },
+              }}
+            >
+              <ViewInArIcon fontSize="large" />
+              <Typography variant="body2" color="textSecondary">
+                View in AR
+              </Typography>
+            </IconButton>
+          )}
         </Stack>
         <Stack direction="row" justifyContent="space-between">
           <Typography variant="h4" color="textPrimary">
