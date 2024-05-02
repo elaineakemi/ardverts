@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ShoppingCart as ShoppingCartIcon } from '@mui/icons-material'
 import {
@@ -10,9 +11,11 @@ import {
   Paper,
 } from '@mui/material'
 import { Search } from '../Search/Search'
+import { CartContext } from '../../contexts/CartContext'
 
 const Header = () => {
   const navigate = useNavigate()
+  const { cartCount } = useContext(CartContext)
 
   return (
     <Paper
@@ -40,7 +43,7 @@ const Header = () => {
 
           <Search />
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="error">
+            <Badge badgeContent={cartCount} color="error">
               <ShoppingCartIcon />
             </Badge>
           </IconButton>

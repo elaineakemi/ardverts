@@ -1,11 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { useState } from 'react'
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-  Link,
-  Paper,
-} from '@mui/material'
+import { Link } from 'react-router-dom'
+
+import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material'
 import {
   Home as HomeIcon,
   Favorite as FavoriteIcon,
@@ -33,7 +30,12 @@ const BottomNav = () => {
           label="Home"
           icon={<HomeIcon />}
         />
-        <BottomNavigationAction label="Category" icon={<ManageSearchIcon />} />
+        <BottomNavigationAction
+          component={Link}
+          label="Category"
+          to="/categories"
+          icon={<ManageSearchIcon />}
+        />
         <BottomNavigationAction label="Sell" icon={<MonetizationOnIcon />} />
         <BottomNavigationAction label="Favourites" icon={<FavoriteIcon />} />
         <BottomNavigationAction

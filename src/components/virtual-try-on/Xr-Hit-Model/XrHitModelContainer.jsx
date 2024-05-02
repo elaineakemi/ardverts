@@ -21,7 +21,7 @@ const XrHitModelContainer = ({ modelType }) => {
           setArStatus(status)
           return status === 'exited' ? (
             <>
-              <ViewInArIcon fontSize="large" />
+              <ViewInArIcon fontSize="large" sx={{ fill: 'black' }} />
               <Typography variant="body2" color="textSecondary">
                 View in AR
               </Typography>

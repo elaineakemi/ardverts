@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import { useContext, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import {
   Typography,
@@ -12,6 +13,7 @@ import {
   AccordionDetails,
   Paper,
   Box,
+  Snackbar,
 } from '@mui/material'
 import {
   ExpandMore as ExpandMoreIcon,
@@ -20,10 +22,12 @@ import {
 import { ImageSlider } from '../Image-Slider/ImageSlider'
 import { MockProducts } from '../../mock/Products'
 import { XrHitModelContainer } from '../Virtual-Try-On/Xr-Hit-Model/XrHitModelContainer'
+import { CartContext } from '../../contexts/CartContext'
 
 const ProductDetail = () => {
   const { productId } = useParams()
   const navigate = useNavigate()
+  const { addItemToCart } = useContext(CartContext)
 
   const product = MockProducts.find((p) => p.id === Number(productId))
 
@@ -31,14 +35,35 @@ const ProductDetail = () => {
     return <Container>Product not found</Container>
   }
 
+  const [state, setState] = useState({
+    open: false,
+    vertical: 'top',
+    horizontal: 'right',
+  })
+  const { vertical, horizontal, open } = state
+
+  const handleClose = () => {
+    setState({ ...state, open: false })
+  }
+
   const handleAR = () => {
     navigate(`/products/${product.id}/try/${product.type}`)
   }
+
+  const handleCart = () => {
+    addItemToCart()
+    setState({ ...state, open: true })
+  }
+
   return (
-    <Paper
-      sx={{ position: 'absolute', top: 0, left: 0, right: 0 }}
-      elevation={0}
-    >
+    <div style={{ marginTop: '80px', marginBottom: '80px' }}>
+      <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={open}
+        onClose={handleClose}
+        message="Item added to cart!"
+        key={vertical + horizontal}
+      />
       <Container sx={{ pb: 2 }}>
         <ImageSlider images={product.images} />
       </Container>
@@ -126,11 +151,12 @@ const ProductDetail = () => {
               backgroundColor: '#FF8F1C',
             },
           }}
+          onClick={handleCart}
         >
           Add to Cart
         </Button>
       </Container>
-    </Paper>
+    </div>
   )
 }
 

@@ -70,7 +70,8 @@ const CartProvider = ({ children }) => {
   }, [cartItems])
 
   const addItemToCart = (productToAdd) => {
-    setCartItems(addCartItem(cartItems, productToAdd))
+    // setCartItems(addCartItem(cartItems, productToAdd))
+    setCartCount(cartCount + 1)
   }
   const removeItemFromCart = (cartItemToRemove) => {
     setCartItems(removeCartItem(cartItems, cartItemToRemove))
