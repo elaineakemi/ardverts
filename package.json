@@ -1,6 +1,5 @@
 {
   "name": "ardverts",
-  "homepage": "https://elaineakemi.github.io/ardverts",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,9 +14,10 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "@babel/runtime": "^7.24.4",
+    "@babel/runtime": "^7.24.5",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@mdx-js/rollup": "^3.0.1",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
     "@mui/system": "^5.15.15",
@@ -40,6 +40,7 @@
     "sort-by": "^1.2.0"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.24.3",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.7.1",
